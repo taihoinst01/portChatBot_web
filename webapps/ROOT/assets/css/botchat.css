@@ -409,7 +409,7 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea div {
   margin-left: 40px; }
 
 .wc-message-from-bot .wc-message-content {
-  background-color: #FFF;
+  /*background-color: #FFF;*/
   color: #000000; }
 
 .wc-message-from-bot svg.wc-message-callout path {
