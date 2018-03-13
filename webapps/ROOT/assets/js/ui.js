@@ -79,11 +79,11 @@ $(function () {
         $('#movTitle').text(movPopTitle);
         var movPopUrl = $(this).children().eq(2).attr('alt');
         $('#video').attr('src', movPopUrl);
-        $('.mov-wrapper').show().animate({ "right": "200px", "opacity": "1", "display": "block" }, "fast").fadeIn("fast");
+        $('.mov-wrapper').show().animate({ "right": "380px", "opacity": "1", "display": "block" }, "fast").fadeIn("fast");
     });
     $('.btnTopClose').click(function () {
         $("#video").attr('src', '');
-        $('.mov-wrapper').hide().animate({ "right": "-200px", "opacity": "0", "display": "none" }, "slow").fadeOut("slow");
+        $('.mov-wrapper').hide().animate({ "right": "-380px", "opacity": "0", "display": "none" }, "slow").fadeOut("slow");
     });
 });
 
