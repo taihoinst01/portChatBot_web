@@ -4,7 +4,19 @@ $(function () {
         //$('#wrapper').css({ 'height': ($(document).height()) + 'px' });
     });
 
-    //챗봇창 상단
+    //팝업창 생성
+    $("#bot > div").add(
+        "<div class='mov-wrapper popupArea'>" +
+            "<div class='popHeader'>" +
+                "<span id='movTitle' class='popupTitle'></span>" +
+                "<button class='btnTopClose'></button>" +
+            "</div>" +
+            "<div class='popBody'>" +
+                "<iframe id='video' src='' frameborder='0' style='overflow-x:hidden;overflow:auto;width:100%;height:322px;allowfullscreen'></iframe>" +
+            "</div>" +
+        "</div>").appendTo("#bot");
+
+    //챗봇창 상단 생성
     $(".wc-header > span").add(
         "<span class='chatTitle'></span>" +
         "<span class='chatTitleText'><strong>Safety</strong> ChatBot</span>" +
@@ -12,7 +24,18 @@ $(function () {
         "<span class='topIcon btnLayer btnLayerFull'><button class='topIcon02'></button></span>" +
         "<span class='topIcon btnMin'><button class='topIcon01'></button></span>").appendTo(".wc-header");
 
-    //챗봇창 버튼
+    //챗봇 메뉴창 생성
+    $(".wc-chatview-panel > div").add(
+        "<div class='menuBox off'>" +
+        "<p class='menuReStartBtn'><span> Menu </span></p>" +
+        "<ul>" +
+        //"<li class='menuSelectBtn'><span><a href='#' onclick='viewMenu('Accident analysis')'> Accident analysis </span></a></li>" +
+        //"<li class='menuSelectBtn'><span><a href='#' onclick='viewMenu('Accident trends')'> Accident trends </span></a></li>" +
+        "<li class='menuSelectBtn'><span><a href='#' onclick='viewMenu()'> return home </span></a></li>" +
+        "</ul>" +
+        "</div > ").appendTo(".wc-chatview-panel");
+
+    //챗봇창 버튼 동작
     $('.btnClose').click(function () {
         $('.wc-chatview-panel').css('bottom', 0).hide();
         $('.bot-wrap').hide().removeClass("chatOn").addClass("chatOff");
@@ -40,4 +63,40 @@ $(function () {
         }
     });
 
+    //챗봇 메뉴 버튼 동작
+    $('.menuIcon').click(function (){
+        if ($('.menuBox').hasClass("off")) {
+            $('.menuBox').removeClass('off').addClass('on');
+            $('.menuBox').css({ 'display': 'block' });
+        } else {
+            $('.menuBox').removeClass('on').addClass('off');
+            $('.menuBox').css({ 'display': 'none' });
+        }
+    });
+    
+    $(document).on('click', '.wc-card-play > .non-adaptive-content', function () {
+        var movPopTitle = $(this).children().eq(1).attr('alt');
+        $('#movTitle').text(movPopTitle);
+        var movPopUrl = $(this).children().eq(2).attr('alt');
+        $('#video').attr('src', movPopUrl);
+        $('.mov-wrapper').show().animate({ "right": "200px", "opacity": "1", "display": "block" }, "fast").fadeIn("fast");
+    });
+    $('.btnTopClose').click(function () {
+        $("#video").attr('src', '');
+        $('.mov-wrapper').hide().animate({ "right": "-200px", "opacity": "0", "display": "none" }, "slow").fadeOut("slow");
+    });
 });
+
+//챗봇 메뉴 처음으로 돌아가기
+function viewMenu() {
+    var returnText = "return home";     // 처음으로 돌아가는 텍스트
+    $('div.wc-console').addClass('has-text');
+    $('input[type="text"].wc-shellinput').attr('value', returnText);
+    $('input[type="text"].wc-shellinput').val(returnText);
+    $('label.wc-send').trigger('click');
+    $('input[type="text"].wc-shellinput').attr('value', '');
+    $('input[type="text"].wc-shellinput').val('');
+    $('.wc-console').removeClass('has-text');
+    $('.menuBox').removeClass('on').addClass('off');
+    $('.menuBox').css({ 'display': 'none' });
+}

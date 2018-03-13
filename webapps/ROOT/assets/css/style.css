@@ -1,8 +1,8 @@
 ﻿/* chatbot BG */
-.mainBG{background:url(../image/chatbotStyle/psa_bg.png) no-repeat center 10%; background-attachment:fixed; width:100%}
+.mainBG{background:url(../image/chatbotStyle/psa_bg2.png) no-repeat center 10%; background-attachment:fixed; width:100%}
 .botBtnPosition{position:absolute;top:360px;left:25%}
-.banner{background:url(../image/chatbotStyle/btn_chatlink.png) no-repeat; width:170px;height:47px;position:relative;top:360px;left:31%;transform: translateX(-69%) translateY(-10%);}
-.banner:hover{background:url(../image/chatbotStyle/btn_chatlink_hover.png) no-repeat; width:170px;height:47px;position:relative;top:360px;left:31%;transform: translateX(-69%) translateY(-10%);cursor:pointer}
+.banner{background:url(../image/chatbotStyle/btn_chatlink.png) no-repeat; width:170px;height:47px;position:relative;top:340px;left:23.5%;transform: translateX(-50%) translateY(-10%);}
+.banner:hover{background:url(../image/chatbotStyle/btn_chatlink_hover.png) no-repeat; width:170px;height:47px;position:relative;top:340px;left:23.5%;transform: translateX(-50%) translateY(-10%);cursor:pointer}
 
 /* chat TOP */
 .chatTitle{background: url("../image/chatbotStyle/ico_top.png") no-repeat; height:16px;width:16px; display: inline-block;top: 12px; position: absolute; }
@@ -23,4 +23,19 @@
 /* chat input */
 .wc-menu{cursor: pointer;display: inline-block;width:60px;height: 50px;background-color: #fff;}
 .menuIcon{width:42px;height:23px;background-color:#00aad2;color:#fff;text-align:center;position:relative;top:13.5px;left:9px;border-radius:5px}
-.sendIcon{width:42px;height:23px;background-color:#C3C6CD;color:#fff;text-align:center;position:relative;top:13.5px;right:9px;border-radius:5px}
+.sendIcon{width:42px;height:23px;background-color:#C3C6CD;color:#fff;text-align:center;position:relative;top:13.5px;left:9px;border-radius:5px}
+.menuBox{background-color:#fff;width:250px;height:62px;position:absolute;bottom:53px;display:none;text-align:center;box-shadow: 0 1px 10px 0 rgba(0,0,0,0.30);border: 1px solid #CCC; border-radius: 4px;}
+.menuReStartBtn{color:#fff;background-color:#302f35;height:30px;font-size:12px}
+.menuReStartBtn > span {position:relative; top:5px}
+.menuSelectBtn{border-top:1px solid #f0f1f4; width:100%; height:30px;}
+.menuSelectBtn > span {position:relative; top:4px}
+
+/* media Icon */
+.playImg {background: url("../image/chatbotStyle/ico_play_50.png");width:50px;height:50px;transition:.5s ease;opacity:1;position:absolute;top:45%;left:50%;transform:translate(-50%, -50%);-ms-transform: translate(-50%, -50%);cursor:pointer}
+
+/* popup Area */
+.popupArea{opacity:0;position: absolute;left:185px;bottom: 174px;width:570px;height:354px;display:none;background-color:#fff}
+.popupTitle{font-size:20px;color:#FFF;position:absolute;top:5px;left:15px}
+.popHeader{background-color:#4b4f57; background-size: 100%;height: 38px;width: 571px; position: relative;}
+.popBody{background-color: #fbfbfb;height:318px; position: relative;}
+.btnTopClose{background: url("../image/chatbotStyle/btn_close.png") no-repeat;  width:17px;height:17px;display: inline-block;top: 13px; right: 10px;position: absolute;border:none}

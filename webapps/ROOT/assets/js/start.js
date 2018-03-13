@@ -34,6 +34,6 @@ if (isMobile()) {   //모바일 환경
 } else {    // 웹 환경
     $(document).on('click', '#botChatBtn', function () {
 		$('.wc-chatview-panel').css('bottom', 0).show();
-		$('.bot-wrap').show();
+        $('.bot-wrap').show();
 	});
 }

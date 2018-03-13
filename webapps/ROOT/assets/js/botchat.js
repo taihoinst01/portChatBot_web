@@ -3110,7 +3110,7 @@
                         return o.createElement("img", r.__assign({}, t))
                 }
             },
-            d = function(t) {
+            d = function (t) {
                 return a.test(t.contentType) ? o.createElement("span", null, t.format.strings.unknownCard.replace("%1", t.contentType)) : t.contentUrl ? o.createElement("span", null, o.createElement("a", {
                     href: t.contentUrl,
                     title: t.contentUrl,
@@ -3130,17 +3130,36 @@
                     };
                 switch (e.contentType) {
                     case "application/vnd.microsoft.card.hero":
-                        if (!e.content) return null;
-                        var r = new i.AdaptiveCardBuilder;
-                        return e.content.images && e.content.images.forEach(function(t) {
-                            return r.addImage(t.url)
-                        }), r.addCommon(e.content), o.createElement(s.AdaptiveCardContainer, {
-                            className: "hero",
-                            card: r.card,
-                            onImageLoad: t.onImageLoad,
-                            onCardAction: t.onCardAction,
-                            onClick: n(e.content.tap)
-                        });
+                        if (e.content.card_division == "play") {
+                            if (!e.content) return null;
+                            var r = new i.AdaptiveCardBuilder;
+                            return e.content.images && e.content.images.forEach(function (t) {
+                                return r.addImage(t.url)
+                            }), r.addCommon(e.content), o.createElement(s.AdaptiveCardContainer, {
+                                className: "hero wc-card-play",
+                                card: r.card,
+                                onImageLoad: t.onImageLoad,
+                                onCardAction: t.onCardAction,
+                                onClick: n(e.content.tap)
+                            }, o.createElement("div", { className: "playImg" })
+                             , o.createElement("div", { className: "hidden", alt: e.content.title })
+                             , o.createElement("div", { className: "hidden", alt: e.content.card_value }))
+                        } else {
+                            if (!e.content) return null;
+                            var r = new i.AdaptiveCardBuilder;
+                            return e.content.images && e.content.images.forEach(function (t) {
+                                return r.addImage(t.url)
+                            }), r.addCommon(e.content), o.createElement(s.AdaptiveCardContainer, {
+                                className: "hero",
+                                card: r.card,
+                                onImageLoad: t.onImageLoad,
+                                onCardAction: t.onCardAction,
+                                onClick: n(e.content.tap)
+                            });
+                        }
+
+
+                        
                     case "application/vnd.microsoft.card.thumbnail":
                         if (!e.content) return null;
                         var a = new i.AdaptiveCardBuilder;
@@ -7711,16 +7730,22 @@
                         onChange: function(e) {
                             return t.props.onChangeText(t.textInput.value)
                         },
-                        onKeyPress: function(e) {
+                        onKeyPress: function (e) {
+                            if ((t.props.inputText === 'return home') && (t.textInput.value == '')) {
+                                t.props.inputText = '';
+                            }
                             return t.onKeyPress(e)
                         },
-                        onFocus: function() {
+                        onFocus: function () {
                             return t.onTextInputFocus()
                         },
                         placeholder: this.props.listening ? this.props.strings.listeningIndicator : this.props.strings.consolePlaceholder
                     })), o.createElement("label", {
                         className: r,
-                        onClick: function() {
+                        onClick: function () {
+                            if ((t.props.inputText === ''|| t.props.inputText === 'return home') && (t.textInput.value !== '')) {
+                                t.props.inputText = t.textInput.value;
+                            }
                             return t.onClickSend()
                         }
                     }, 
