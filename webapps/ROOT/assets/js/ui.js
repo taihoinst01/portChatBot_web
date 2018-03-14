@@ -12,7 +12,7 @@ $(function () {
                 "<button class='btnTopClose'></button>" +
             "</div>" +
             "<div class='popBody'>" +
-                "<iframe id='video' src='' frameborder='0' allowfullscreen='true' style='overflow-x:hidden;overflow:auto;width:100%;height:322px;'></iframe>" +
+                "<iframe id='video' src='' frameborder='0' style='overflow-x:hidden;overflow:auto;width:100%;height:322px;'></iframe>" +
             "</div>" +
         "</div>").appendTo("#bot");
 
