@@ -168,17 +168,11 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea div {
   padding-right: 8px; }
 
 .wc-message svg.wc-message-callout {
-    background: url("../image/chatbotStyle/ico_profi.png") no-repeat;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    position: fixed;
-    margin: 0 0 0 17px
-    /*height: 22px;
+    height: 22px;
     position: absolute;
     stroke: none;
     top: 12px;
-    width: 6px;*/
+    width: 6px;
 }
 
 .wc-message-content {
@@ -419,7 +413,12 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea div {
   display: none; }
 
 .wc-message-from-bot svg.wc-message-callout {
-  left: -6px; }
+    background: url("../image/chatbotStyle/ico_profi.png") no-repeat;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: -10px 0 0 -40px;
+}
 
 /* console */
 .wc-console > * {

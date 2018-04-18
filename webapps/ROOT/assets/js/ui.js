@@ -41,7 +41,7 @@ $(function () {
         $('.bot-wrap').hide().removeClass("chatOn").addClass("chatOff");
     });
     $('.btnMin').click(function () {
-        $('.wc-chatview-panel').css({ "overflow": "hidden" })
+        $('.wc-chatview-panel').css({ "overflow": "hidden" });
         $('.wc-chatview-panel').animate({ "height": "32px" }, "fast");
         $('.wc-console, wc-message-pane').hide();
         $('.btnMin').css({ 'display': 'none' });
@@ -50,7 +50,7 @@ $(function () {
     });
     $(document).on('click', '.wc-header [class*=btnLayer]', function () {
         if ($(this).hasClass('btnLayerMid')) {
-            $('.wc-chatview-panel').css({ "overflow": "visible" })
+            $('.wc-chatview-panel').css({ "overflow": "visible" });
             $('.wc-chatview-panel').animate({ "height": "582px" }, "fast");
             $('.wc-console, wc-message-pane').show();
             $('.btnLayer').removeClass('btnLayerMid').addClass('btnLayerFull');
@@ -74,6 +74,7 @@ $(function () {
         }
     });
     
+	//챗봇 팝업 동작 (동영상)
     $(document).on('click', '.wc-card-play > .non-adaptive-content', function () {
         var movPopTitle = $(this).children().eq(1).attr('alt');
         $('#movTitle').text(movPopTitle);
